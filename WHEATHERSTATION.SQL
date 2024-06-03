@@ -1,0 +1,9 @@
+-- SELECT CAST(ROUND(ABS(MIN(LAT_N)-MAX(LAT_N) + ABS(MIN(LONG_W)-MAX(LONG_W)),4)) AS NUMERIC(10,4) AS Euclidean_Distance) FROM STATION; --
+
+
+SELECT CAST(ROUND(
+    SQRT(
+        POWER(MAX(LAT_N) - MIN(LAT_N), 2) + 
+        POWER(MAX(LONG_W) - MIN(LONG_W), 2)
+    ), 4) AS DECIMAL(10,4)) AS Euclidean_Distance
+FROM STATION;
